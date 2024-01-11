@@ -1,12 +1,9 @@
-@font-face {
-  font-family: "ubuntu";
-  src: url(/assets/fonts/Ubuntu-Regular.ttf);
-}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "ubuntu";
+ font-family: 'Ubuntu', sans-serif;
 }
 :root {
   --Cool-gray: hsl(231, 11%, 63%);
