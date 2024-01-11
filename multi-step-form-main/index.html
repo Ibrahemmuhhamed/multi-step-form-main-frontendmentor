@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css.css" />
+    <title>Frontend Mentor | Multi-step form</title>
+  </head>
+  <body>
+    <main>
+      <div class="sidebar">
+        <ul class="list">
+          <li class="active" data-value="info">
+            <p>1</p>
+            <span>Step 1</span>
+            <h2>Your info</h2>
+          </li>
+          <li data-value="plan">
+            <p>2</p>
+            <span>Step 2</span>
+            <h2>Select Plan</h2>
+          </li>
+          <li data-value="add-ons">
+            <p>3</p>
+            <span>Step 3</span>
+            <h2>ADD-ONS</h2>
+          </li>
+          <li data-value="summary">
+            <p>4</p>
+            <span>Step 4</span>
+            <h2>Summary</h2>
+          </li>
+        </ul>
+      </div>
+      <form action="">
+        <div id="info" class="info">
+          <h2>Personal Info</h2>
+          <p class="par">
+            Please provide your name, email address, and phone number.
+          </p>
+          <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div>
+            <label for="email"
+              >Email
+              <address></address
+            ></label>
+            <input type="text" name="email" id="email" />
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="text" name="phone" id="phone" />
+          </div>
+        </div>
+        <div id="plan" class="plan" style="display: none">
+          <h2>Select your plan</h2>
+          <p class="par">You have the option of monthly or yearly billing.</p>
+          <div class="all-plans">
+            <div>
+              <img src="./assets/images/icon-arcade.svg" alt="" srcset="" />
+              <label for="arcade">Arcade</label>
+              <p class="par">
+                $<span id="value">8</span>/<span id="time_range">mo</span>
+              </p>
+              <p class="yearly_discount">2 Monthes Free</p>
+              <input type="radio" name="time" id="arcade" />
+            </div>
+            <div>
+              <img src="./assets/images/icon-advanced.svg" alt="" srcset="" />
+              <label for="advanced">Advanced</label>
+              <p class="par">
+                $<span id="value">12</span>/<span id="time_range">mo</span>
+              </p>
+              <p class="yearly_discount">2 Monthes Free</p>
+              <input type="radio" name="time" id="advanced" />
+            </div>
+            <div>
+              <img src="./assets/images/icon-pro.svg" alt="" srcset="" />
+              <label for="pro">Pro</label>
+              <p class="par">
+                $<span id="value">15</span>/<span id="time_range">mo</span>
+              </p>
+              <p class="yearly_discount">2 Monthes Free</p>
+              <input type="radio" name="time" id="pro" />
+            </div>
+          </div>
+          <div class="time_range">
+            <div>
+              <label for="monthly">Monthly</label>
+              <input type="radio" name="time-select" id="monthly" />
+            </div>
+            <div class="line"></div>
+            <div>
+              <label for="monthly">Yearly</label>
+              <input type="radio" name="time-select" id="yearly" />
+            </div>
+          </div>
+        </div>
+        <div class="add-ons" id="add-ons" style="display: none">
+          <h2>Pick add-ons</h2>
+          <p class="par">Add-ons help enhence your gaming experince.</p>
+          <div id="online_service">
+            <input type="checkbox" name="add-ons" id="service" />
+            <label for="service">Online service</label>
+            <p class="par">Access to multiplayer Games</p>
+            <span class="price" id="price">+$1/mo</span>
+          </div>
+          <div id="storage_section">
+            <input type="checkbox" name="add-ons" id="storage" />
+            <label for="storage">Larger storage</label>
+            <p class="par">Extra 1TB of cloud save</p>
+            <span class="price" id="price">+$2/mo</span>
+          </div>
+          <div id="custom_section">
+            <input type="checkbox" name="add-ons" id="custom_profile" />
+            <label for="custom_profile">Customizable Profile</label>
+            <p class="par">Custom Theme in your profile</p>
+            <span class="price" id="price">+$2/mo</span>
+          </div>
+        </div>
+        <div class="summary" id="summary" style="display: none">
+          <h2>Finishing up</h2>
+          <p class="par">Double-check everything looks OK before confirming.</p>
+          <div class="selection" id="summary_selections">
+            <div>
+              <div class="selected-plan" id="selected_plan">
+                <p>Arcade(Monthly)</p>
+                <button>change</button>
+                <p class="price">$9/mo</p>
+              </div>
+              <div class="adds"></div>
+            </div>
+            <div class="total-price">
+              <p>total</p>
+              <p class="par_price">+$12/mo</p>
+            </div>
+          </div>
+        </div>
+        <div class="thanks" style="display: none">
+          <img src="/assets/images/icon-thank-you.svg" alt="" srcset="" />
+          <h2>Thanks you</h2>
+          <p class="par">
+            Thanks for confirming your subscription! We hope you have fun using
+            our platform. If you ever need support, please feel free to email us
+            at support@loremgaming.com.
+          </p>
+        </div>
+        <div class="control">
+          <a class="back">Go Back</a>
+          <button id="next_step" data-id="0" type="submit">Next Step</button>
+        </div>
+      </form>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

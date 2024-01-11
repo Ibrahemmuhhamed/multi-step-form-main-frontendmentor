@@ -1,0 +1,476 @@
+@font-face {
+  font-family: "ubuntu";
+  src: url(/assets/fonts/Ubuntu-Regular.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "ubuntu";
+}
+:root {
+  --Cool-gray: hsl(231, 11%, 63%);
+  --Light-gray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+  --Marine-blue: hsl(213, 96%, 18%);
+  --Purplish-blue: hsl(243, 100%, 62%);
+  --Pastel-blue: hsl(228, 100%, 84%);
+  --Light-blue: hsl(206, 94%, 87%);
+  --Strawberry-red: hsl(354, 84%, 57%);
+}
+body {
+  background-color: var(--Magnolia);
+  padding: 2rem 13rem;
+}
+main {
+  padding: 25px 20px;
+  display: flex;
+  background-color: var(--White);
+  position: relative;
+  inset: 0;
+  margin: auto;
+  gap: 15px;
+  /* width: fit-content; */
+  min-height: 600px;
+}
+main .sidebar {
+  background-image: url(./assets/images/bg-sidebar-desktop.svg);
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main .sidebar ul {
+  /* background-color: blueviolet; */
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+main .sidebar ul li {
+  display: grid;
+  font-size: 12px;
+  cursor: pointer;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 15px;
+  color: var(--White);
+}
+main .sidebar ul li span {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--Light-gray);
+}
+main .sidebar ul li > p {
+  text-align: center;
+  border: 2px solid var(--White);
+  font-weight: 600;
+  grid-row: 1/3;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 21px;
+  align-items: center;
+  justify-content: center;
+}
+main .sidebar ul li.active > p {
+  background-color: var(--Pastel-blue);
+  color: var(--Marine-blue);
+  border: none;
+}
+/* Start Responsive Main  */
+@media only screen and (width < 668px) {
+  body {
+    margin: 0;
+    padding: 0 !important;
+  }
+  main {
+    padding: 0;
+    flex-direction: column;
+    height: auto;
+    background-color: transparent;
+    width: auto;
+  }
+  main .sidebar {
+    background-image: url(./assets/images/bg-sidebar-mobile.svg);
+    background-size: cover;
+  }
+  main .sidebar ul {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0;
+    padding: 35px 30px;
+  }
+  main .sidebar ul li span,
+  main .sidebar ul li h2 {
+    display: none;
+  }
+  main form > div:not(.control) {
+    margin: 0 20px;
+    transform: translatey(-25px);
+    background-color: #fff;
+    border-radius: 8px;
+  }
+}
+/* @media only screen and (845px < width < 1124px) {
+  body {
+    padding: 2rem 8rem;
+  }
+} */
+/* @media only screen and (668px < width < 845px) {
+  body {
+    padding: 2rem 3rem;
+  }
+} */
+main form {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+main form > div {
+  padding: 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media only screen and (width < 1424px) {
+  body {
+    padding: 20px 50px;
+  }
+  main form > div {
+    padding: 20px 40px;
+  }
+}
+main form > div.info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+.null_error::after {
+  content: "This Feild Is required";
+  position: absolute;
+  right: 5px;
+  top: 0;
+  color: var(--Strawberry-red);
+}
+.num_error::after {
+  content: "This Feild Should Not Contain Number";
+  position: absolute;
+  right: 5px;
+  top: 0;
+  color: var(--Strawberry-red);
+}
+.email_error::after {
+  content: "Please Enter A Valid Email";
+  position: absolute;
+  right: 5px;
+  top: 0;
+  color: var(--Strawberry-red);
+}
+main form > div.info > div > input {
+  outline: none;
+  font-size: 18px;
+  border: 1px solid var(--Light-gray);
+  padding: 15px 10px;
+  border-radius: 10px;
+}
+/* Start Styling Plan Section */
+main form .plan {
+  display: flex;
+}
+main form .plan .all-plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  align-items: center;
+  gap: 15px;
+}
+main form .plan h2,
+main form .plan .par {
+  grid-column: 1/4;
+}
+main .all-plans div {
+  padding: 15px 60px 15px 20px;
+  position: relative;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--Light-gray);
+  border-radius: 8px;
+  transition: 0.2s;
+  border: 2px solid transparent;
+}
+.yearly_discount {
+  display: none;
+}
+.yearly .yearly_discount {
+  color: var(--Marine-blue);
+  font-size: 14px;
+  font-weight: 700;
+  display: block;
+  padding-top: 8px;
+}
+@media only screen and (width < 668px) {
+  main .all-plans div {
+    align-items: center;
+    padding: 15px;
+  }
+}
+main .all-plans div:hover {
+  border: 2px solid var(--Marine-blue);
+}
+main .all-plans div input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  inset: 0;
+  opacity: 0;
+}
+main .all-plans div:has(input:checked) {
+  background-color: var(--Light-blue);
+}
+main form .plan > div img {
+  width: 40px;
+  padding-bottom: 35px;
+}
+main form > div h2 {
+  font-size: 31px;
+  color: var(--Marine-blue);
+}
+main form > div .par {
+  color: var(--Cool-gray);
+  padding-bottom: 20px;
+}
+main form > div > .plan {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
+  gap: 8px;
+}
+main form .plan .all-plans .par {
+  padding-bottom: 5px !important;
+}
+.time_range {
+  grid-column: 1/4;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: var(--Magnolia);
+}
+.time_range .line {
+  width: 40px;
+  height: 20px;
+  background-color: var(--Marine-blue);
+  border-radius: 10px;
+  position: relative;
+}
+.time_range .line::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 3px;
+  left: var(--left, 4px);
+  right: var(--right, 4px);
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.3s all;
+}
+.time_range > div {
+  position: relative;
+}
+.time_range > div input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+/* End Styling Plan Section */
+
+main form > div > div label {
+  color: var(--Marine-blue);
+}
+
+/* Control Buttons  */
+main form .control {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
+  justify-items: end;
+}
+main .control button {
+  width: fit-content;
+  padding: 15px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: var(--Marine-blue);
+  border: none;
+  border-radius: 8px;
+  float: right;
+  cursor: pointer;
+}
+main .control #next_step {
+  grid-column: 2;
+  place-self: self-end;
+}
+main .control .back {
+  background-color: transparent;
+  color: var(--Cool-gray);
+  grid-column: 1;
+  cursor: pointer;
+  place-self: self-start;
+}
+/* --------------- */
+/* Start Styling Add-Ons Section */
+main .add-ons > div {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  position: relative;
+  padding-left: 50px;
+  border: 1px solid transparent;
+  row-gap: 5px;
+  transition: 0.2s all;
+  padding: 15px 15px 15px 50px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+main .add-ons > div::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  height: 25px;
+  width: 25px;
+  border: 1px solid var(--Light-gray);
+  transition: 0.2s all;
+  border-radius: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 17px;
+}
+
+main .add-ons > div input:hover {
+  border: 1px solid;
+}
+main .add-ons > div h3 {
+  color: var(--Marine-blue);
+  font-weight: 600;
+}
+main .add-ons > div .par {
+  font-size: 15px;
+  padding: 0;
+}
+main .add-ons > div > input[type="checkbox"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+main .add-ons > div:has(input:checked) {
+  background-color: var(--Magnolia);
+  border: 1px solid var(--Pastel-blue);
+}
+main .add-ons > div:has(input:checked)::after {
+  background-image: url(./assets/images/icon-checkmark.svg);
+  background-color: var(--Purplish-blue);
+}
+main .add-ons > div .price {
+  grid-column: 2/3;
+  grid-row: 1/3;
+  text-align: end;
+  color: var(--Purplish-blue);
+  font-weight: 600;
+  font-size: 15px;
+}
+@media only screen and (width < 680px) {
+  main form > div > div label {
+    font-size: 16px;
+  }
+}
+/* End Add-Ons Section */
+/* Start Summray Section */
+main .summary > .selection :first-child main .summary > div > div {
+  display: flex;
+  flex-direction: column;
+}
+.total-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  color: var(--Marine-blue);
+  font-weight: 600;
+  font-size: 20px;
+}
+main .summary > .selection > div:first-child {
+  background-color: var(--Magnolia);
+  padding: 25px;
+  gap: 10px;
+}
+main .summary > div > div > .selected-plan {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+}
+
+main .summary > div > div > .selected-plan {
+  border-bottom: 1px solid var(--Light-blue);
+  color: var(--Marine-blue);
+  font-weight: 600;
+}
+main .summary > div > div > .selected-plan .price {
+  grid-row: 1/3;
+  grid-column: 2/3;
+  text-align: end;
+}
+main .summary .par_price {
+  color: var(--Marine-blue);
+  font-weight: 600;
+  text-align: end;
+}
+main .summary > div > div > .selected-plan button {
+  grid-column: 1/2;
+  width: fit-content;
+  color: var(--Cool-gray);
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+main .summary > .selection > div > div:not(.selected-plan) p:not(.par_price) {
+  color: var(--Cool-gray);
+}
+.adds {
+  padding: 10px;
+}
+.adds > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+/* End Summray Sevtion */
+.thanks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100;
+}
+.thanks .par {
+  text-align: center;
+}
